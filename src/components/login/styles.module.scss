@@ -1,0 +1,39 @@
+@import 'src/shared/styles/variables.scss';
+
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+}
+.title, .caption {
+  color: $grey-dark;
+}
+.title {
+  font-size: 24px;
+  margin: 0px;
+  font-weight: bold;
+}
+.caption {
+  font-size: 18px;
+  font-weight: normal;
+  margin: $margin 0;
+}
+
+.input {
+  background-color: $grey;
+  border-radius: $border-radius;
+  padding: $padding 20px;
+  &, &::placeholder {
+    color: $white;
+    opacity: 1;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .8px;
+  }
+  margin: $margin 0;
+}
