@@ -1,0 +1,27 @@
+@import-normalize;
+@import "variables.scss";
+
+body {
+  position: relative;
+  margin: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: $grey-light;
+}
+*, input::placeholder {
+  font-family: 'Montserrat', sans-serif;
+}
+button {
+  border: none;
+  padding: $padding;
+  color: $white;
+  border-radius: $border-radius;
+  background-color: $highlight;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  letter-spacing: .8px;
+}
+input {
+  border: none;
+}
