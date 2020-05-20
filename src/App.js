@@ -1,6 +1,6 @@
 // @flow
 import React from "react"
-import "./App.css"
+import styles from "./App.module.scss"
 
 // COMPONENTS
 import Login from "./components/login"
@@ -49,7 +49,7 @@ const [newGame, {data = {}}] = useMutation(NEW_GAME)
 const game: GameType = data.createGame
 
 return (
-    <div className='App'>
+    <div className={styles.App}>
     {!game &&
       <Login
         handleOnLoginSubmit={(name: string):void => newGame({variables: {name}})}
