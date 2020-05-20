@@ -1,19 +1,20 @@
 // @flow
 import React from 'react'
 import type {Game as GameType} from '../shared/types'
+import styles from './styles.module.scss'
 import Character from '../components/character'
 import Card from '../components/card'
 import Turn from '../components/turn'
 
 const Game = ({game}: {game: GameType}) => {
   return (
-    <div>
-      <div className='main'>
-        <div className='characters'>
+    <div className={styles.wrapper}>
+      <div className={styles.main}>
+        <div className={styles.characters}>
           <Character character={game.monster} />
           <Character character={game.player} />
         </div>
-        <div className='cards'>
+        <div className={styles.cards}>
         {
           game.player.cards.map(card =>
             <Card key={card.id} card={card}/>
@@ -21,7 +22,7 @@ const Game = ({game}: {game: GameType}) => {
         }
         </div>
       </div>
-      <div className='turns'>
+      <div className={styles.side}>
         <Turn game={game}/>
       </div>
     </div>

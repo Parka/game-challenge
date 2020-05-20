@@ -11,6 +11,7 @@
 }
 
 .details {
+  flex: 2.5;
   border-radius: $border-radius;
   background-color: $black;
   display: flex;
@@ -21,7 +22,7 @@
 
 .avatar {
   width: 100px;
-  min-height: 100px;
+  height: 120px;
   background-color: $grey-dark;
   background-repeat: no-repeat;
   background-size: cover;
@@ -43,9 +44,10 @@
   padding: $padding;
 }
 .health, .modifiers {
-  white-space: pre-wrap;
+  white-space: pre;
 }
 .modifiers {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;

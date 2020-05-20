@@ -1,0 +1,44 @@
+@import 'src/shared/styles/variables.scss';
+
+.wrapper {
+  display: flex;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  margin-right: $margin;
+}
+
+.side {
+  margin-left: $margin;
+  display: flex;
+  flex-direction: column;
+  &>* {
+    flex: 1;
+  }
+  max-height: 464px;
+}
+
+.characters {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $margin;
+  &>* {
+    flex: 1;
+    &+* {
+      margin-top: $margin;
+    }
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: $margin;
+  row-gap: $margin;
+  align-self: stretch;
+  position:relative;
+  margin-top: $margin;
+}
+

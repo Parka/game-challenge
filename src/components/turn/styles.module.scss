@@ -1,6 +1,8 @@
 @import 'src/shared/styles/variables.scss';
 
 .main {
+  display: flex;
+  flex-direction: column;
   border-radius: $border-radius;
   text-transform: uppercase;
   font-weight: bold;
@@ -16,10 +18,12 @@
 }
 
 .body {
+  flex: 1;
   padding: $padding;
   background-color: $black;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .content {
@@ -42,4 +46,12 @@
 
 .button {
   margin-top: $margin;
+}
+
+.name {
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.value {
+  font-size: 30px;
 }

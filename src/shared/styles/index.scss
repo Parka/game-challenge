@@ -7,6 +7,7 @@ body {
   min-width: 100vw;
   min-height: 100vh;
   background-color: $grey-light;
+  user-select: none;
 }
 *, input::placeholder {
   font-family: 'Montserrat', sans-serif;
@@ -21,6 +22,7 @@ button {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   letter-spacing: .8px;
+  cursor: pointer;
 }
 input {
   border: none;
