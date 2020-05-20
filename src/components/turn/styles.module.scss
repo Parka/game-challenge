@@ -1,0 +1,45 @@
+@import 'src/shared/styles/variables.scss';
+
+.main {
+  border-radius: $border-radius;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: $white;
+  overflow: hidden;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  background-color: $grey-dark;
+  padding: $padding;
+}
+
+.body {
+  padding: $padding;
+  background-color: $black;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  border-radius: 3px;
+  border: 1px solid $grey-dark;
+  padding: $padding;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: $margin 0;
+}
+
+.turn_variable {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: $margin;
+}
+
+.button {
+  margin-top: $margin;
+}

@@ -1,21 +1,24 @@
 // @flow
 import React from 'react'
 import type {Game as GameType} from '../../shared/types'
+import styles from './styles.module.scss'
 
 const Turn = ({game}: {game: GameType}) =>
-    <div>
-        <div className='title'> Turns </div>
-        <div className='main'>
-          <div className='turn_variable'>
-            <div className='name'>current</div>
-            <div className='value'>{game.currentTurn}</div>
+    <div className={styles.main}>
+        <div className={styles.title}> Turns </div>
+        <div className={styles.body}>
+          <div className={styles.content}>
+            <div className={styles.turn_variable}>
+              <div className={styles.name}>current</div>
+              <div className={styles.value}>{game.currentTurn}</div>
+            </div>
+            <div className={styles.turn_variable}>
+              <div className={styles.name}>left</div>
+              <div className={styles.value}>{game.maxTurns - game.currentTurn}</div>
+            </div>
           </div>
-          <div className='turn_variable'>
-            <div className='name'>left</div>
-            <div className='value'>{game.maxTurns - game.currentTurn}</div>
-          </div>
-        </div>
-        <button>end turn</button>
+          <button className={styles.button}>end turn</button>
+      </div>
     </div>
 
 export default Turn
