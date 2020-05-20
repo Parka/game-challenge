@@ -1,0 +1,55 @@
+@import 'src/shared/styles/variables.scss';
+
+.main {
+  display: flex;
+  flex-direction: row;
+  color: $white;
+  font-weight: bold;
+  span {
+    font-weight: normal;
+  }
+}
+
+.details {
+  border-radius: $border-radius;
+  background-color: $black;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  margin-right: $margin;
+}
+
+.avatar {
+  width: 100px;
+  min-height: 100px;
+  background-color: $grey-dark;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  padding: $padding;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name {
+  text-transform: capitalize;
+}
+
+.name, .health {
+  padding: $padding;
+}
+.health, .modifiers {
+  white-space: pre-wrap;
+}
+.modifiers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $padding;
+  border-radius: $border-radius;
+  background-color: $grey-dark;
+}
