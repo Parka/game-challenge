@@ -4,6 +4,7 @@ import styles from "./App.module.scss"
 
 // COMPONENTS
 import Login from "./components/login"
+import Modal from "./components/modal"
 import Game from "./game"
 
 // TYPES
@@ -94,6 +95,28 @@ const [nextTurn, {data = {nextTurn: {monsterEffect: {}}}, loading}] = useMutatio
 const game: ?GameType = gameData
 const gameId: ?string = game && game.id
 const horror: bool = data.nextTurn.monsterEffect.effect === "HORROR"
+
+const won: bool = !!game && !!game.monster && game.monster.hp < 1
+const lost: bool =
+  !!game && !won &&
+  (
+    (game.currentTurn === game.maxTurns) ||
+    (game.player.hp < 1)
+  )
+
+if (won || lost) {
+  return (
+    <div className={styles.App}>
+      <Modal>
+        {won ?
+          `Congratulations!
+          You Win! (:` :
+          `Ups.. you lose! :(`
+        }
+      </Modal>
+    </div>
+  )
+}
 
 return (
     <div className={styles.App}>
