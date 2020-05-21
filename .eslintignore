@@ -1,3 +1,4 @@
 src/serviceWorker.js
 *.test.*
 *.svg
+*.scss
