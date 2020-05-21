@@ -82,11 +82,12 @@ const NEXT_TURN = gql`
 
 function App() {
 const [gameData, setGameData] = useState()
-const [newGame] = useMutation(NEW_GAME, {
+
+const [newGame, {loading: loadingGame}] = useMutation(NEW_GAME, {
   onCompleted: ({createGame}) => setGameData(createGame)
 })
 
-const [nextTurn] = useMutation(NEXT_TURN, {
+const [nextTurn, {loading}] = useMutation(NEXT_TURN, {
   onCompleted: data => setGameData(data.nextTurn.game)
 })
 
@@ -97,13 +98,14 @@ return (
     <div className={styles.App}>
     {!game &&
       <Login
-        handleOnLoginSubmit={(name: string):void => newGame({variables: {name}})}
+        handleOnLoginSubmit={(name: string):any => !loadingGame && newGame({variables: {name}})}
       />
     }
     {!!game &&
       <Game
         game={game}
-        handlePlayerAction={(cardId: ?string):void => nextTurn({variables: {cardId, gameId}})}
+        handlePlayerAction={(cardId: ?string):any => !loading && nextTurn({variables: {cardId, gameId}})}
+        disabled={loading}
       />
     }
     </div>

@@ -7,18 +7,19 @@ import Card from '../components/card'
 import Turn from '../components/turn'
 
 type Props = {
+  disabled: bool,
   game: GameType,
   handlePlayerAction: (card?: string) => void,
 }
 
-const Game = ({game, handlePlayerAction}: Props) => (
-  <div className={styles.wrapper}>
+const Game = ({disabled, game, handlePlayerAction}: Props) => (
+  <div className={styles.wrapper} style={{pointerEvents: disabled ? 'none' : 'initial'}}>
     <div className={styles.main}>
       <div className={styles.characters}>
         <Character character={game.monster} />
         <Character character={game.player} />
       </div>
-      <div className={styles.cards}>
+      <div className={styles.cards}  style={{opacity: disabled ? 0.5 : 1}}>
       {
         game.player.cards.map(card =>
           <Card
