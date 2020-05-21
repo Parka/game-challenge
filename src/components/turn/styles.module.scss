@@ -22,8 +22,10 @@
   padding: $padding;
   background-color: $black;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
+  @include media('>tablet') {
+    flex-direction: column;
+  }
 }
 
 .content {
@@ -31,10 +33,12 @@
   border: 1px solid $grey-dark;
   padding: $padding;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: $margin 0;
+  @include media('>tablet') {
+    flex-direction: column;
+  }
 }
 
 .turn_variable {

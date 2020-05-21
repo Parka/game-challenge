@@ -2,22 +2,32 @@
 
 .wrapper {
   display: flex;
+  flex-direction: column;
+  @include media('>tablet') {
+    flex-direction: row;
+  }
 }
 
 .main {
   display: flex;
   flex-direction: column;
-  margin-right: $margin;
+  @include media('>tablet') {
+    margin-right: $margin;
+  }
 }
 
 .side {
-  margin-left: $margin;
   display: flex;
   flex-direction: column;
-  &>* {
-    flex: 1;
+  margin-top: $margin;
+  @include media('>tablet') {
+    margin-top: 0;
+    margin-left: $margin;
+    &>* {
+      flex: 1;
+    }
+    max-height: 464px;
   }
-  max-height: 464px;
 }
 
 .characters {
@@ -40,7 +50,10 @@
   align-self: stretch;
   position:relative;
   margin-top: $margin;
-  max-height: 350px;
   overflow-y: auto;
+  max-height: 200px;
+  @include media('>tablet') {
+    max-height: 350px;
+  }
 }
 

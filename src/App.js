@@ -10,7 +10,7 @@ import Game from "./game"
 // TYPES
 import type {Game as GameType} from "./shared/types"
 
-// GRAPHQL
+// graphql
 import gql from 'graphql-tag'
 import {useMutation} from '@apollo/react-hooks'
 
