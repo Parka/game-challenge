@@ -24,7 +24,7 @@ const Game = ({game, handlePlayerAction}: Props) => (
           <Card
             key={card.id}
             card={card}
-            onClick={() => handlePlayerAction( card.id)}
+            onClick={() => handlePlayerAction(card.id)}
           />
         )
       }
