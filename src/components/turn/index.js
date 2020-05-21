@@ -10,7 +10,7 @@ const Turn = ({game, onClick}: {game: GameType, onClick: any}) =>
           <div className={styles.content}>
             <div className={styles.turn_variable}>
               <div className={styles.name}>current</div>
-              <div className={styles.value}>{game.currentTurn}</div>
+              <div className={styles.value}>{game.currentTurn + 1}</div>
             </div>
             <div className={styles.turn_variable}>
               <div className={styles.name}>left</div>
