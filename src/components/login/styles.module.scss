@@ -9,6 +9,10 @@
 .content {
   display: flex;
   flex-direction: column;
+  form {
+    display: flex;
+    flex-direction: column;
+  }
 }
 .title, .caption {
   color: $grey-dark;

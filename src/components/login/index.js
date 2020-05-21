@@ -13,18 +13,21 @@ const Login = ({handleOnLoginSubmit}: Props) => {
       <div  className={styles.content}>
         <h1 className={styles.title}>Welcome to Bons Game</h1>
         <h2 className={styles.caption}>What&apos;s your name?</h2>
-        <input
-          type='text'
-          className={styles.input}
-          value={name}
-          onChange={e => setName(e.target.value)}
-          placeholder='name'
-        />
-        <button
-          className={styles.button}
-           onClick={() => handleOnLoginSubmit(name)}>
-          Let&apos;s play
-        </button>
+        <form onSubmit={e => {
+          handleOnLoginSubmit(name)
+          e.preventDefault()
+        }}>
+          <input
+            type='text'
+            className={styles.input}
+            value={name}
+            onChange={e => setName(e.target.value)}
+            placeholder='name'
+          />
+          <button className={styles.button}>
+            Let&apos;s play
+          </button>
+        </form>
       </div>
     </div>
   )
