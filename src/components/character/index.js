@@ -3,7 +3,7 @@ import React from 'react'
 import type {Player as PlayerType, Monster as MonsterType} from '../../shared/types'
 import styles from './styles.module.scss'
 
-const Character = ({character}: {character: PlayerType | MonsterType}) =>
+const Character = ({character, horror}: {character: PlayerType | MonsterType, horror?: bool}) =>
     <div className={styles.main}>
       <div className={styles.details}>
         <div
@@ -15,7 +15,12 @@ const Character = ({character}: {character: PlayerType | MonsterType}) =>
           <div className={styles.health}><span>HP: </span>{character.hp}/{character.maxHp}</div>
         </div>
       </div>
-      <div className={styles.modifiers}><span>Shield: </span>{character.shield}</div>
+      <div className={styles.modifiers}>
+        <p><span>Shield: </span>{character.shield}</p>
+        {horror &&
+          <p>Horrorized!</p>
+        }
+      </div>
     </div>
 
 export default Character

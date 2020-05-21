@@ -10,16 +10,17 @@ type Props = {
   disabled: bool,
   game: GameType,
   handlePlayerAction: (card?: string) => void,
+  horror: bool,
 }
 
-const Game = ({disabled, game, handlePlayerAction}: Props) => (
+const Game = ({disabled, game, handlePlayerAction, horror}: Props) => (
   <div className={styles.wrapper} style={{pointerEvents: disabled ? 'none' : 'initial'}}>
-    <div className={styles.main}>
+    <div className={styles.main} style={{pointerEvents: horror ? 'none' : 'initial'}}>
       <div className={styles.characters}>
         <Character character={game.monster} />
-        <Character character={game.player} />
+        <Character character={game.player} horror={horror} />
       </div>
-      <div className={styles.cards}  style={{opacity: disabled ? 0.5 : 1}}>
+      <div className={styles.cards}  style={{opacity: disabled || horror ? 0.5 : 1}}>
       {
         game.player.cards.map(card =>
           <Card

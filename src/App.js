@@ -87,12 +87,13 @@ const [newGame, {loading: loadingGame}] = useMutation(NEW_GAME, {
   onCompleted: ({createGame}) => setGameData(createGame)
 })
 
-const [nextTurn, {loading}] = useMutation(NEXT_TURN, {
-  onCompleted: data => setGameData(data.nextTurn.game)
+const [nextTurn, {data = {nextTurn: {monsterEffect: {}}}, loading}] = useMutation(NEXT_TURN, {
+  onCompleted: _data => setGameData(_data.nextTurn.game)
 })
 
 const game: ?GameType = gameData
 const gameId: ?string = game && game.id
+const horror: bool = data.nextTurn.monsterEffect.effect === "HORROR"
 
 return (
     <div className={styles.App}>
@@ -106,6 +107,7 @@ return (
         game={game}
         handlePlayerAction={(cardId: ?string):any => !loading && nextTurn({variables: {cardId, gameId}})}
         disabled={loading}
+        horror={horror}
       />
     }
     </div>
