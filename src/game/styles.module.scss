@@ -40,5 +40,7 @@
   align-self: stretch;
   position:relative;
   margin-top: $margin;
+  max-height: 350px;
+  overflow-y: auto;
 }
 
