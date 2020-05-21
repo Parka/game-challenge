@@ -2,13 +2,17 @@
 import React, {useState} from "react"
 import styles from './styles.module.scss'
 
-const Login = ({handleOnLoginSubmit}: {handleOnLoginSubmit: (string)=>void}) => {
+type Props = {
+  handleOnLoginSubmit: (name: string)=>void
+}
+
+const Login = ({handleOnLoginSubmit}: Props) => {
   const [name, setName] = useState('')
   return (
     <div  className={styles.main}>
       <div  className={styles.content}>
         <h1 className={styles.title}>Welcome to Bons Game</h1>
-        <h2 className={styles.caption}>What's your name?</h2>
+        <h2 className={styles.caption}>What&apos;s your name?</h2>
         <input
           type='text'
           className={styles.input}
@@ -18,8 +22,8 @@ const Login = ({handleOnLoginSubmit}: {handleOnLoginSubmit: (string)=>void}) => 
         />
         <button
           className={styles.button}
-          onClick={() => handleOnLoginSubmit(name)}>
-          Let's play
+           onClick={() => handleOnLoginSubmit(name)}>
+          Let&apos;s play
         </button>
       </div>
     </div>

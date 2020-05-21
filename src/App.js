@@ -1,5 +1,5 @@
 // @flow
-import React from "react"
+import React, {useState} from "react"
 import styles from "./App.module.scss"
 
 // COMPONENTS
@@ -43,10 +43,55 @@ const NEW_GAME = gql`
     }
   }
 `
-function App() {
-const [newGame, {data = {}}] = useMutation(NEW_GAME)
+const NEXT_TURN = gql`
+  mutation NextTurn($gameId: ID, $cardId: ID!) {
+    nextTurn(input: {gameId: $gameId, cardId: $cardId}) {
+      game {
+        id
+        currentTurn
+        maxTurns
+        turnsLeft
+        player{
+          id
+          name
+          hp
+          maxHp
+          shield
+          cards{
+            id
+            value
+            effect
+          }
+        }
+        monster{
+          id
+          name
+          hp
+          maxHp
+          shield
+          image
+        }
+      }
+      monsterEffect {
+        effect
+        value
+      }
+    }
+  }
+`
 
-const game: GameType = data.createGame
+function App() {
+const [gameData, setGameData] = useState()
+const [newGame] = useMutation(NEW_GAME, {
+  onCompleted: ({createGame}) => setGameData(createGame)
+})
+
+const [nextTurn] = useMutation(NEXT_TURN, {
+  onCompleted: data => setGameData(data.nextTurn.game)
+})
+
+const game: ?GameType = gameData
+const gameId: ?string = game && game.id
 
 return (
     <div className={styles.App}>
@@ -56,7 +101,10 @@ return (
       />
     }
     {!!game &&
-      <Game game={game}/>
+      <Game
+        game={game}
+        handlePlayerAction={(cardId: ?string):void => nextTurn({variables: {cardId, gameId}})}
+      />
     }
     </div>
   )

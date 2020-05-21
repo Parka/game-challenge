@@ -6,27 +6,37 @@ import Character from '../components/character'
 import Card from '../components/card'
 import Turn from '../components/turn'
 
-const Game = ({game}: {game: GameType}) => {
-  return (
-    <div className={styles.wrapper}>
-      <div className={styles.main}>
-        <div className={styles.characters}>
-          <Character character={game.monster} />
-          <Character character={game.player} />
-        </div>
-        <div className={styles.cards}>
-        {
-          game.player.cards.map(card =>
-            <Card key={card.id} card={card}/>
-          )
-        }
-        </div>
+type Props = {
+  game: GameType,
+  handlePlayerAction: (card?: string) => void,
+}
+
+const Game = ({game, handlePlayerAction}: Props) => (
+  <div className={styles.wrapper}>
+    <div className={styles.main}>
+      <div className={styles.characters}>
+        <Character character={game.monster} />
+        <Character character={game.player} />
       </div>
-      <div className={styles.side}>
-        <Turn game={game}/>
+      <div className={styles.cards}>
+      {
+        game.player.cards.map(card =>
+          <Card
+            key={card.id}
+            card={card}
+            onClick={() => handlePlayerAction( card.id)}
+          />
+        )
+      }
       </div>
     </div>
-  )
-}
+    <div className={styles.side}>
+      <Turn
+        game={game}
+        onClick={() => handlePlayerAction('')}
+      />
+    </div>
+  </div>
+)
 
 export default Game
