@@ -106,7 +106,7 @@ const lost: bool =
 
 if (won || lost) {
   return (
-    <div className={styles.App}>
+    <div className={styles.App} onClick={() => window.location.reload()}>
       <Modal>
         {won ?
           `Congratulations!
