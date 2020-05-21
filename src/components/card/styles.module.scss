@@ -1,5 +1,9 @@
 @import 'src/shared/styles/variables.scss';
 
+.selected {
+  background-color: $highlight !important;
+}
+
 .main {
   background-color: $black;
   border-radius: $border-radius;
